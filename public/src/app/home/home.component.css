@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.5)), url(../../assets/img/smoke.gif);
+    background-attachment: fixed;
+    /* background: black; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5vh 5vw;
+    /* display: flex;
+    justify-content: center; */
+    font-family: 'Arapey', serif;
+    color: #fff;
+    letter-spacing: .2em;
+}
+
+/* logo spacing */
+.logo {
+    font-size: 3vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.logo-right {
+    text-align: right;
+}
+
+
+
+
+
+/* Navigation */
+.navigation__button {
+    font-size: 2vw;
+    position: fixed;
+    bottom: 7vh;
+    left: 5vw;
+    z-index: 2000;
+    transform: rotate(270deg);
+
+    transition: all .8s ease;
+}
+
+.navigation__button:active {
+    transform: rotate(90deg);
+}
+
+.navigation__checkbox {
+    display: none;
+}
+
+.navigation__nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1500;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.8)), url(../../assets/img/smoke.gif);
+    background-size: cover;
+
+    /* Nav hidden by default */
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+
+    transition: all .5s;
+}
+
+.navigation__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    list-style-type: none;
+    text-align: center;
+}
+
+.navigation__background {
+    height: 2rem;
+    width: 3rem;
+    position: fixed;
+    bottom: 5rem;
+    left: 5rem;
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.8)), url(../assets/img/smoke.gif); */
+    z-index: 1000;
+    transition: transform .5s;
+
+    /* transform: scale(80); */
+}
+
+.navigation__item {
+    margin: .5rem;
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+    display: inline-block;
+    font-size: 2rem;
+    color: lightgrey;
+    text-decoration: none;
+    padding: 1rem 0;
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+    font-style: italic;
+    transform: translateX(.5rem);
+}
+
+.navigation__active {
+    visibility: hidden;
+    font-size: 2vw;
+    position: fixed;
+    bottom: 7vh;
+    left: 5vw;
+    z-index: 2000;
+}
+
+
+.navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__button {
+    transform: rotate(360deg);
+    opacity: 0;
+}
+
+
+.navigation__checkbox:checked ~ .navigation__active {
+    visibility: visible;
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Main header */
+.header-wrap {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* BG color for typewriter */
+.typewriter {
+    text-align: center;
+}
+
+
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+    font-size: 3vw;
+    margin-bottom: 1rem;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid white; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: 
+        typing 4.5s steps(30, end),
+        blink-caret .7s step-end infinite;
+}
+
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}

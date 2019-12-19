@@ -1,0 +1,319 @@
+/* BROWSER RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    padding: 5vh 5vw;
+    /* display: flex;
+    justify-content: center; */
+    font-family: 'Arapey', serif;
+    color: #fff;
+    letter-spacing: .2em;
+}
+
+/* logo spacing */
+.logo {
+    font-size: 3vw;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.logo-right {
+    text-align: right;
+}
+
+/* Navigation */
+.navigation__button {
+    font-size: 2vw;
+    position: fixed;
+    bottom: 7vh;
+    left: 5vw;
+    z-index: 2000;
+    transform: rotate(270deg);
+
+    transition: all .8s ease;
+}
+
+.navigation__button:active {
+    transform: rotate(90deg);
+}
+
+.navigation__checkbox {
+    display: none;
+}
+
+.navigation__nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1500;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.8)), url(../../assets/img/smoke.gif);
+    background-size: cover;
+
+    /* Nav hidden by default */
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+
+    transition: all .5s;
+}
+
+.navigation__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    list-style-type: none;
+    text-align: center;
+}
+
+.navigation__background {
+    height: 2rem;
+    width: 3rem;
+    position: fixed;
+    bottom: 5rem;
+    left: 5rem;
+    z-index: 1000;
+    transition: transform .5s;
+}
+
+.navigation__item {
+    margin: .5rem;
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+    display: inline-block;
+    font-size: 2rem;
+    color: lightgrey;
+    text-decoration: none;
+    padding: 1rem 0;
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+    font-style: italic;
+    transform: translateX(.5rem);
+}
+
+.navigation__active {
+    visibility: hidden;
+    font-size: 2vw;
+    position: fixed;
+    bottom: 7vh;
+    left: 5vw;
+    z-index: 2000;
+}
+
+
+.navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__button {
+    transform: rotate(360deg);
+    opacity: 0;
+}
+
+
+.navigation__checkbox:checked ~ .navigation__active {
+    visibility: visible;
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* BLUR overlay */
+.main{
+    /* background: inherit; */
+    font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70%;
+    position: absolute;
+    /* background-image: linear-gradient(to right bottom, rgb(165, 120, 124, 0.4), rgb(116, 151, 151, 0.4)); */
+    background-color: black;
+}
+
+.main:before{
+    content: ‘’;
+    width: 300px;
+    height: 400px;
+    /* background: inherit;  */
+    position: absolute;
+    left: -25px;
+    right: 0;
+    top: -25px;
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+    filter: blur(10px);
+    -webkit-filter: blur(8px);
+}
+
+.main__border {
+    border: 1px solid white;
+    width: 97%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    padding: 4rem;
+}
+
+.main__text {
+    font-size: 3vw;
+    transition: 1s ease;
+}
+
+.main__header {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-bottom: 2rem;
+}
+
+.main__title {
+    font-style: italic;
+    border-bottom: 1px solid white;
+}
+
+.main__categories {
+    font-size: 3vw;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category__title {
+    margin-bottom: 1rem;
+}
+
+.list__wrapper {
+    margin-left: 1rem;
+}
+
+.list__item {
+    list-style-type: none;
+}
+
+/* Tilt hover animation */
+.box {
+    position: relative;
+    width: 20%;
+    height: 50%;
+}
+.box-contents {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../../assets/img/painting.jpg) 50% 50% / cover no-repeat;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);
+    transition: 1s ease;
+}
+.hover-point {
+    position: absolute;
+    z-index: 2;
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+}
+.hover-point:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+.hover-point:nth-child(2) {
+    top: 0;
+    left: calc(100% / 3);
+}
+.hover-point:nth-child(3) {
+    top: 0;
+    right: 0;
+}
+.hover-point:nth-child(4) {
+    top: calc(100% / 3);
+    left: 0;
+}
+.hover-point:nth-child(5) {
+    top: calc(100% / 3);
+    right: 0;
+}
+.hover-point:nth-child(6) {
+    bottom: 0;
+    left: 0;
+}
+.hover-point:nth-child(7) {
+    bottom: 0;
+    left: calc(100% / 3);
+}
+.hover-point:nth-child(8) {
+    bottom: 0;
+    right: 0;
+}
+.hover-point:nth-child(1):hover ~ .box-contents {
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, .3);
+    transform-origin: right top;
+    transform: perspective(2000px) rotateX(2deg) rotateY(-2deg) rotateZ(1deg);
+}
+.hover-point:nth-child(2):hover ~ .box-contents {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
+    transform-origin: center top;
+    transform: perspective(2000px) rotateX(2deg);
+}
+.hover-point:nth-child(3):hover ~ .box-contents {
+    box-shadow: -15px 15px 50px rgba(0, 0, 0, .3);
+    transform-origin: left top;
+    transform: perspective(2000px) rotateX(2deg) rotateY(2deg) rotateZ(-1deg);
+}
+.hover-point:nth-child(4):hover ~ .box-contents {
+    box-shadow: 15px 5px 50px rgba(0, 0, 0, .3);
+    transform-origin: left center;
+    transform: perspective(2000px) rotateY(-2deg);
+}
+.hover-point:nth-child(5):hover ~ .box-contents {
+    box-shadow: -15px 5px 50px rgba(0, 0, 0, .3);
+    transform-origin: right center;
+    transform: perspective(2000px) rotateY(2deg);
+}
+.hover-point:nth-child(6):hover ~ .box-contents {
+    box-shadow: 15px -15px 50px rgba(0, 0, 0, .3);
+    transform-origin: right bottom;
+    transform: perspective(2000px) rotateX(-2deg) rotateY(-2deg) rotateZ(-1deg);
+}
+.hover-point:nth-child(7):hover ~ .box-contents {
+    box-shadow: 0 -15px 50px rgba(0, 0, 0, .3);
+    transform-origin: center bottom;
+    transform: perspective(2000px) rotateX(-2deg);
+}
+.hover-point:nth-child(8):hover ~ .box-contents {
+    box-shadow: -15px -15px 50px rgba(0, 0, 0, .3);
+    transform-origin: left bottom;
+    transform: perspective(2000px) rotateX(-2deg) rotateY(2deg) rotateZ(1deg);
+}
+
+.box {
+    margin-top: 2em;
+}
